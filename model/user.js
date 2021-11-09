@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
-   username:{type:String,unique:true},
+   username:{type:String},
    message:{
     process:{type:String},  
     operation:{type:String},
