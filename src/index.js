@@ -7,6 +7,7 @@ require("dotenv").config();
 const { DB_URL } = require("../config/keys");
 const cron = require("node-cron");
 
+const { EJSON } = require('bson');   
 // Start the webapp
 
 const webApp = express();
@@ -52,6 +53,8 @@ const Compute = require("../lib/language");
 // Route for WhatsApp
 
 const pq = require("../lib/remQue"); // priority queue for storing remainders
+const user = require("../model/user");
+const { DocumentPermissionContext } = require("twilio/lib/rest/preview/sync/service/document/documentPermission");
 
 webApp.post("/whatsapp", async (req, res) => {
   // console.log(req.body)
@@ -63,6 +66,7 @@ webApp.post("/whatsapp", async (req, res) => {
       );
       // console.log(message);
       // console.log(message.id);
+      // console.log(EJSON.stringify(pq));
       var msg;
       
       User.findById(message.id, function (err, docs) {
@@ -73,6 +77,15 @@ webApp.post("/whatsapp", async (req, res) => {
             msg=docs.message.cust_message;
         }
       });
+
+      User.findByIdAndUpdate( message.id, {Heap: EJSON.stringify(pq)}, function (err, docs) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log("Heap added to db", docs)
+        }
+      })
 
       await WA.sendMessage(message.message, req.body.From);
       
