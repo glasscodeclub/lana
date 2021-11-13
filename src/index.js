@@ -64,6 +64,7 @@ webApp.post("/whatsapp", async (req, res) => {
       // console.log(message);
       // console.log(message.id);
       var msg;
+      
       User.findById(message.id, function (err, docs) {
         if (err) {
           console.log(err);
@@ -74,7 +75,7 @@ webApp.post("/whatsapp", async (req, res) => {
       });
 
       await WA.sendMessage(message.message, req.body.From);
-      console.log(pq);
+      
       const task = cron.schedule(
         "*/2 * * * * *",
         async () => {
