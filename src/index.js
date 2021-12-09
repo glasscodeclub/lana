@@ -3,12 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 require('dotenv').config();
-
+const {DB_URL}=require('../config/keys')
 // Start the webapp
 const webApp = express();
 
 // Webapp settings
-const url = process.env.DB_URL
+const url = DB_URL
 
 const connectionParams = {
     useNewUrlParser: true,
