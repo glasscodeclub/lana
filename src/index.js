@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 require('dotenv').config();
 const {DB_URL}=require('../config/keys')
 // Start the webapp
+const schedular=require('../middleware/schedular')
+schedular()
 const webApp = express();
 
 // Webapp settings
@@ -37,6 +39,8 @@ const User=require('../model/user')
 webApp.get('/', (req, res) => {
     res.send(`Sam Is God`);
 });
+
+
 
 const WA = require('../lib/whatsapp-send-message');
 const Compute = require("../lib/language")
