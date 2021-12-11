@@ -8,7 +8,8 @@ const {DB_URL}=require('../config/keys')
 const schedular=require('../middleware/schedular')
 schedular()
 const webApp = express();
-
+const WA = require('../lib/whatsapp-send-message');
+const Compute = require("../lib/language")
 // Webapp settings
 const url = DB_URL
 
@@ -42,8 +43,7 @@ webApp.get('/', (req, res) => {
 
 
 
-const WA = require('../lib/whatsapp-send-message');
-const Compute = require("../lib/language")
+
 // Route for WhatsApp
 webApp.post('/whatsapp', async (req, res) => {
     console.log(req.body)

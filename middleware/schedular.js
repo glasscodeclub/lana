@@ -16,7 +16,6 @@ function triggerSchedular(){
             if(diff<=15){
                 console.log('Message sent')
                  WA.sendMessage(doc.reminder,doc.username);
-                 
                  doc.isDone=true;
                  doc.save()
                  
