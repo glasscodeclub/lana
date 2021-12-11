@@ -2,7 +2,7 @@ const schedule=require('node-schedule-tz')
 const User=require("../model/user")
 const WA = require('../lib/whatsapp-send-message');
 function triggerSchedular(){
-  let task=  schedule.scheduleJob('*/2 * * * * *',async ()=>{
+  let task=  schedule.scheduleJob('*/10 * * * * *',async ()=>{
       
        await User.find({ isDone: false}, function (err, docs) {
         task.cancel()  // stop to check documents 
