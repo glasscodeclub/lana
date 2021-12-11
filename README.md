@@ -67,6 +67,6 @@ Create a .env file in the root of Directory, with the following variables
     $ yarn build
 
 ## Screenshots
-![SS1](.git/screenshots/ss1.png?raw=true) 
-![SS2](.git/screenshots/SS2.png?raw=true) 
-![SS3](.git/screenshots/SS3.png?raw=true) 
+![SS1](/screenshots/ss1.png?raw=true) 
+![SS2](/screenshots/SS2.png?raw=true) 
+![SS3](/screenshots/SS3.png?raw=true) 
