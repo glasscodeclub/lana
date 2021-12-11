@@ -3,12 +3,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 require('dotenv').config();
-
+const {DB_URL}=require('../config/keys')
 // Start the webapp
+const schedular=require('../middleware/schedular')
+schedular()
 const webApp = express();
-
+const WA = require('../lib/whatsapp-send-message');
+const Compute = require("../lib/language")
 // Webapp settings
-const url = process.env.DB_URL
+const url = DB_URL
 
 const connectionParams = {
     useNewUrlParser: true,
@@ -38,8 +41,9 @@ webApp.get('/', (req, res) => {
     res.send(`Sam Is God`);
 });
 
-const WA = require('../lib/whatsapp-send-message');
-const Compute = require("../lib/language")
+
+
+
 // Route for WhatsApp
 webApp.post('/whatsapp', async (req, res) => {
     console.log(req.body)

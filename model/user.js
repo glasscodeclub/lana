@@ -1,20 +1,23 @@
 const mongoose = require("mongoose")
 
+
 const userSchema = new mongoose.Schema({
-   username:{type:String,unique:true},
+   username:{type:String},
    message:{
     process:{type:String},  
     operation:{type:String},
     date:{
-        day:{type:Number},
-        month:{type:Number},
-        year:{type:Number}
+        type:String
     },
     time:{
-        first:{type:Number},
-        second:{type:Number},
-        isAM:{type:String},
+        type:String
     }, 
+    isAM:{
+        type:String
+    }
+   },
+   reminder:{
+    type:String
    },
    country:{type:String,default:"+91"},
    isDone:{type:Boolean,default:false}
