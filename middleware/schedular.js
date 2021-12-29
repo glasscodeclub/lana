@@ -8,13 +8,13 @@ function triggerSchedular(){
         task.cancel()  // stop to check documents 
            docs.forEach((doc)=>{
                let dateString=doc.message.date+" "+doc.message.time+" "+doc.message.isAM;
-               console.log(dateString)
+            //    console.log(dateString)
                let rem=new Date(dateString);
-               console.log(rem.toDateString())
+            //    console.log(rem.toDateString())
                let now=new Date()
                let diff=(rem-now)/(1000*60)
             if(diff<=15){
-                console.log('Message sent')
+                // console.log('Message sent')
                  WA.sendMessage(doc.reminder,doc.username);
                  doc.isDone=true;
                  doc.save()
@@ -27,7 +27,7 @@ function triggerSchedular(){
             
         }).clone().catch(function(err){ console.log(err)})
     
-        console.log('schedular running')
+        // console.log('schedular running')
     })
 }
 

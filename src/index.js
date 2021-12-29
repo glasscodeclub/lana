@@ -46,9 +46,6 @@ webApp.get('/', (req, res) => {
     res.send(`Sam Is God`);
 });
 
-
-
-
 // Route for WhatsApp
 webApp.post('/whatsapp', async (req, res) => {
     console.log(req.body)
@@ -66,7 +63,7 @@ webApp.listen(PORT, () => {
 webApp.get("/resource*", (req, res) => {
     axios
       .get(
-        `https://clist.by:443/api/v1/json/resource/?name__iregex=${req.query.name__iregex}&${apiKey}`
+        `https://clist.by:443/api/v1/json/resource/?id=${req.query.id}&${apiKey}`
       )
       .then((response) => {
         // console.log(`statusCode: ${res.statusCode}`);
@@ -82,7 +79,7 @@ webApp.get("/resource*", (req, res) => {
   webApp.get("/contest*", (req, res) => {
     axios
       .get(
-        `https://clist.by:443/api/v1/json/contest/?resource__id=${req.query.resource__id}&start__gte=${req.query.start__gte}&order_by=${req.query.order_by}&${apiKey}`
+        `https://clist.by:443/api/v1/json/contest/?resource__id=${req.query.resource_id}&start__lte=${req.query.start__lte}&order_by=${req.query.order_by}&${apiKey}`
       )
       .then((response) => {
         // console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");
@@ -96,3 +93,19 @@ webApp.get("/resource*", (req, res) => {
       });
   });
   
+  webApp.get("/account*", (req, res) => {
+    axios
+      .get(
+        `https://clist.by:443/api/v2/json/account/?handle__regex=${req.query.handle__regex}&&resource_id=${req.query.resource_id}&${apiKey}`
+      )
+      .then((response) => {
+        // console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");
+        // console.log(`statusCode: ${res.statusCode}`);
+        // console.log(response);
+        res.send(response.data);
+      })
+      .catch((error) => {
+        // console.error(error);
+        res.send("Server is 404");
+      });
+  });
