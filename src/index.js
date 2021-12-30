@@ -12,7 +12,7 @@ const WA = require('../lib/whatsapp-send-message');
 const Compute = require("../lib/language")
 // Webapp settings
 const url = DB_URL
-
+const youtubeApi= process.env.youtubeApi
 const axios = require("axios");
 
 const connectionParams = {
@@ -21,7 +21,7 @@ const connectionParams = {
 }
 
 const apiKey = `username=${process.env.USER_NAME}&api_key=${process.env.API_KEY}`;
-console.log(apiKey);
+// console.log(apiKey);
 
 mongoose.connect(url, connectionParams)
     .then(() => {
@@ -103,7 +103,22 @@ webApp.get("/resource*", (req, res) => {
         res.send("Server is 404");
       });
   });
-  
+  webApp.get("/youtube*", (req, res) => {
+    axios
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${req.query.maxResults}&key=${youtubeApi}&type=video&q=${req.query.q}`
+      )
+      .then((response) => {
+        // console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");
+        // console.log(`statusCode: ${res.statusCode}`);
+        // console.log(response);
+        res.send(response.data);
+      })
+      .catch((error) => {
+        // console.error(error);
+        res.send("Server is 404");
+      });
+  });
   webApp.get("/account*", (req, res) => {
     axios
       .get(
