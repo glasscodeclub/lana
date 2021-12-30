@@ -48,7 +48,18 @@ webApp.get('/', (req, res) => {
 webApp.post('/whatsapp', async (req, res) => {
     console.log(req.body)
     await Compute.process(req.body).then(async (message)=>{
-        await WA.sendMessage(message,req.body.From);
+        if(typeof message=='string'){
+            await WA.sendMessage(message,req.body.From);
+            
+        }else{
+            for(let i=0;i<message.length;i++){
+                messageToSend=message[i].work+"\n"+message[i].command+"\n\n"+message[i].helpingCommand +"(Helping Command)";
+                await WA.sendMessage(messageToSend,req.body.From);
+            }
+           
+        }
+           
+      
     })
 
 });
