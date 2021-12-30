@@ -79,7 +79,7 @@ webApp.get("/resource*", (req, res) => {
   webApp.get("/contest*", (req, res) => {
     axios
       .get(
-        `https://clist.by:443/api/v1/json/contest/?resource__id=${req.query.resource_id}&start__gte=${req.query.start__lte}&end__gte=${req.query.end__gte}&order_by=${req.query.order_by}&${apiKey}`
+        `https://clist.by:443/api/v2/contest/?resource_id=${req.query.resource_id}&${req.query.date}&order_by=${req.query.order_by}&${apiKey}`
       )
       .then((response) => {
         // console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");

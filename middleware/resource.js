@@ -12,6 +12,7 @@ const resource_id = (resource_name) => {
         break;
         case "hackerrank": return 63;
         break;
+        case "codeforcesgym": return 64;
         default: " "
     }
 }
