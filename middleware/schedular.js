@@ -7,6 +7,7 @@ function triggerSchedular(){
        await User.find({ isDone: false}, function (err, docs) {
         task.cancel()  // stop to check documents 
            docs.forEach((doc)=>{
+                // console.log(doc.username)
                let dateString=doc.message.date+" "+doc.message.time+" "+doc.message.isAM;
             //    console.log(dateString)
                let rem=new Date(dateString);
@@ -16,6 +17,7 @@ function triggerSchedular(){
             if(diff<=15){
                 // console.log('Message sent')
                  WA.sendMessage(doc.reminder,doc.username);
+                 
                  doc.isDone=true;
                  doc.save()
                  
