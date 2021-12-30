@@ -71,7 +71,7 @@ webApp.get("/resource*", (req, res) => {
         res.send(response.data);
       })
       .catch((error) => {
-        // console.error(error);
+        console.error(error);
         res.send("Server is 404");
       });
   });
@@ -79,7 +79,7 @@ webApp.get("/resource*", (req, res) => {
   webApp.get("/contest*", (req, res) => {
     axios
       .get(
-        `https://clist.by:443/api/v1/json/contest/?resource__id=${req.query.resource_id}&start__lte=${req.query.start__lte}&order_by=${req.query.order_by}&${apiKey}`
+        `https://clist.by:443/api/v1/json/contest/?resource__id=${req.query.resource_id}&start__gte=${req.query.start__lte}&end__gte=${req.query.end__gte}&order_by=${req.query.order_by}&${apiKey}`
       )
       .then((response) => {
         // console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");
