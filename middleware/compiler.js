@@ -3,7 +3,7 @@ async function callApi(sourceCode,language){
     try{
         let data={
             "clientId":process.env.hacker_rank_client_id,
-            "clientSecret":hacker_rank_clientSecret,
+            "clientSecret":process.env.hacker_rank_clientSecret,
             "script":sourceCode,
             "language":language,
             "versionIndex":"0"
