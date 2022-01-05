@@ -10,7 +10,7 @@ function triggerSchedular(){
                 // console.log(doc.username)
                let dateString=doc.message.date+" "+doc.message.time+" "+doc.message.isAM;
             //    console.log(dateString)
-               let rem=new Date(dateString)+5*60*60*1000+30*60*1000;
+               let rem=new Date(dateString)-5*60*60*1000+30*60*1000;
             //    console.log(rem.toDateString())
                let now=new Date()
                let diff=(rem-now)/(1000*60)
