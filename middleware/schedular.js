@@ -12,12 +12,13 @@ function triggerSchedular(){
             //    console.log(dateString)
                let rem=new Date(dateString);
             //    console.log(rem.toDateString())
-               let now=new Date()
+               let now=new Date();
+               // console.log(now)
                let diff=(rem-now)/(1000*60)
+               console.log(diff)
             if(diff<=15){
                 // console.log('Message sent')
                  WA.sendMessage(doc.reminder,doc.username);
-                 
                  doc.isDone=true;
                  doc.save()
                  

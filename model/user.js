@@ -27,9 +27,10 @@ userSchema.methods.check = async function(){
    console.log("check is working")
     let dateString=this.message.date+" "+this.message.time+" "+this.message.isAM;
     let rem=new Date(dateString);
+    console.log(rem)
     let now=new Date();
     if(rem-now<0){
-        return "😥sorry we cannot travel in past";
+        return "😥 sorry we cannot travel in past";
     }else if(rem-now<=15){
         await this.save();
         this.isDone=true;
