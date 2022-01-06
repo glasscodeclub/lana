@@ -11,6 +11,8 @@ function triggerSchedular(){
                let dateString=doc.message.date+" "+doc.message.time+" "+doc.message.isAM;
             //    console.log(dateString)
                let rem=new Date(dateString);
+                   rem.setHours(rem.getHours()-5);
+                  rem.setMinutes(rem.getMinutes()-30);
             //    console.log(rem.toDateString())
                let now=new Date();
                // console.log(now)
