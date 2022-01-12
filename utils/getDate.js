@@ -13,7 +13,7 @@ var start = currentdate.getFullYear() + "-"
 
 }
 if(keyWords=="future") {
-    var status = "Furure"
+    var status = "Future"
     var currentdate = new Date(); 
     var start = (currentdate.getFullYear()) + "-" 
         + (currentdate.getMonth()+1) + "-" 

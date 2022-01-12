@@ -11,13 +11,16 @@ function triggerSchedular(){
                let dateString=doc.message.date+" "+doc.message.time+" "+doc.message.isAM;
             //    console.log(dateString)
                let rem=new Date(dateString);
-            //    console.log(rem.toDateString())
-               let now=new Date()
+                  //  rem.setHours(rem.getHours()-5);
+                  // rem.setMinutes(rem.getMinutes()-30);
+               // console.log(rem.toDateString())
+               let now=new Date();
+               // console.log(now)
                let diff=(rem-now)/(1000*60)
+               console.log(diff)
             if(diff<=15){
                 // console.log('Message sent')
                  WA.sendMessage(doc.reminder,doc.username);
-                 
                  doc.isDone=true;
                  doc.save()
                  
