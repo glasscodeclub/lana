@@ -16,4 +16,8 @@ const resource_id = (resource_name) => {
         default: " "
     }
 }
+
+// let str="\n\n   print('hello')   \n\n\n"
+// str = str.replace(/^\s+|\s+$/g, '');
+// console.log(str)
 module.exports = resource_id
