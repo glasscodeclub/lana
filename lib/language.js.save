@@ -64,17 +64,17 @@ let help = [
     helpingCommand: ".delete ?",
   },
   {
-    work: "*Get Contest Details *",
+    work: "*Get Contest Details*",
     command: `${syntaxContestDetails} \n`,
     helpingCommand: ".cp ?",
   },
   {
-    work: "*Get Coder Profile *",
+    work: "*Get Coder Profile*",
     command: `${syntaxProfileDetails} \n`,
     helpingCommand: ".cp ?",
   },
   {
-    work: "*Set Contest Reminder *",
+    work: "*Set Contest Reminder*",
     command: `${syntaxContestReminder} \n`,
     helpingCommand: ".cp ?",
   },
