@@ -14,7 +14,7 @@ var start = currentdate.getFullYear() + "-"
 }
 if(keyWords=="future") {
     var status = "Future"
-    var currentdate = new Date(); 
+    var currentdate = new Date();
     var start = (currentdate.getFullYear()) + "-" 
         + (currentdate.getMonth()+1) + "-" 
         + currentdate.getDate() + "T"
@@ -27,7 +27,14 @@ if(keyWords=="future") {
     }
     if(keyWords=="past") {
         var status = "Past"
-        var currentdate = new Date(); 
+        var currentdate = new Date();
+        var year = currentdate.getFullYear()
+        var month = currentdate.getMonth()
+        if (month<=0) {
+            year = currentdate.getFullYear() - 1
+            month = 12;
+        }
+
         var end = currentdate.getFullYear() + "-" 
             + (currentdate.getMonth()+1) + "-" 
             + currentdate.getDate() + "T"
@@ -35,8 +42,8 @@ if(keyWords=="future") {
             + currentdate.getMinutes() + ":" 
             + currentdate.getSeconds();
        
-        var start = currentdate.getFullYear() + "-" 
-            + (currentdate.getMonth()) + "-" 
+        var start = year + "-" 
+            + (month) + "-" 
             + currentdate.getDate() + "T"
             + currentdate.getHours() + ":"  
             + currentdate.getMinutes() + ":" 
