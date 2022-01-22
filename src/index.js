@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 require('dotenv').config();
+const path=require('path')
 const {DB_URL}=require('../config/keys')
 // Start the webapp
 const schedular=require('../middleware/schedular')
@@ -11,6 +12,14 @@ const webApp = express();
 const WA = require('../lib/whatsapp-send-message');
 const Compute = require("../lib/language")
 // Webapp settings
+webApp.set('views', path.join(__dirname, '../views'))
+webApp.set('view engine', 'ejs')
+
+const public=path.join(__dirname,'../public')
+webApp.use(express.static(public))
+
+const assets=path.join(__dirname,'../assets')
+webApp.use(express.static(assets))
 const url = DB_URL
 const youtubeApi= process.env.youtubeApi
 const axios = require("axios");
@@ -43,7 +52,7 @@ const PORT = process.env.PORT;
 const User=require('../model/user')
 // Home route
 webApp.get('/', (req, res) => {
-    res.send(`Sam Is God`);
+    res.render('contributors');
 });
 
 // Route for WhatsApp

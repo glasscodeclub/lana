@@ -16,11 +16,13 @@
     "cli-table": "^0.3.11",
     "dotenv": "^8.6.0",
     "easy-table": "^1.2.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.0.11",
     "node-fetch": "^2.6.1",
     "node-schedule-tz": "^1.2.1-4",
+    "path": "^0.12.7",
     "string-table": "^0.1.5",
     "table": "^6.7.5",
     "twilio": "^3.43.1"

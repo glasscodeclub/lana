@@ -1,0 +1,53 @@
+body {
+    background-image: url('https://1.bp.blogspot.com/-4p_wvqXkDhg/YKMSkzlZCZI/AAAAAAAAQis/vWgHdB-a3U4syecmyO0O3zuBr3u3t5wVQCLcBGAsYHQ/s0/Android_SecurityAndPrivacy_1024x512-01_Updated%2B%25281%2529.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+  }
+img{
+   width: 20rem;
+   height: 20rem;
+   border-radius: 10px;
+}
+
+.header{
+    text-align: center;
+    color: turquoise;
+}
+.flex{
+    margin-top: 50px;
+    display: flex; justify-content: space-around; flex-direction: column;
+}
+
+.flex span{
+    color: turquoise;
+    text-align: center;
+    font-size: larger;
+}
+
+.contributorImage{
+    display: flex;
+    
+}
+.svg{
+    height: 50px;
+    width: 50px;
+    margin-bottom: 4rem;
+}
+.contributor{
+    display: flex; justify-content: space-evenly; width: 100vw; height: 60vh;
+}
+
+.about{
+    width: 50vw;
+    height: 20rem;
+    color: white;
+    font-weight: bolder;
+}
+
+.flexRow{
+    display: flex;
+    justify-items: center;
+}
